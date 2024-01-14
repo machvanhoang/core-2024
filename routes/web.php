@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Admin;
 use App\Livewire\Product;
 use App\Livewire\ProductDetail;
 use App\Livewire\Testing;
@@ -24,3 +25,6 @@ Route::get('testing', Testing::class)->name('testing');
 Route::get('user/{user}', UserShow::class)->name('user_show');
 Route::get('product', Product::class)->name('product');
 Route::get('product/{slug}', ProductDetail::class)->name('product_detail');
+Route::prefix('admin')->as('admin')->group(function () {
+    Route::get('', Admin::class)->name('index');
+});
